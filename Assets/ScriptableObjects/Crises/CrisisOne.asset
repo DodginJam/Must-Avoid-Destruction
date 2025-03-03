@@ -10,13 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3372912547316354baddd3d48d90c6e5, type: 3}
-  m_Name: New Crisis
+  m_Name: CrisisOne
   m_EditorClassIdentifier: 
   <CrisisTitle>k__BackingField: Enemy Troop Build-up at border
   <CrisisDescription>k__BackingField: The enemy military forces have gathered on
     our border, bringing forth large troops numbers and and conducting exercises.
   <SeverityLevel>k__BackingField: 0
   <OptionsForResolution>k__BackingField:
+  - <Title>k__BackingField: 
+    <Detail>k__BackingField: 
+    <ResolutionLevel>k__BackingField: 0
+    <JobRoleAppeal>k__BackingField: 1
+    <JobRoleDisgust>k__BackingField: 0
+  - <Title>k__BackingField: 
+    <Detail>k__BackingField: 
+    <ResolutionLevel>k__BackingField: 0
+    <JobRoleAppeal>k__BackingField: 0
+    <JobRoleDisgust>k__BackingField: 0
   - <Title>k__BackingField: 
     <Detail>k__BackingField: 
     <ResolutionLevel>k__BackingField: 0

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 
 public class PlayerController : MonoBehaviour
@@ -69,6 +70,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask GroundMask
     { get; private set; }
 
+    public bool IsInteractPressed
+    { get; private set; }
+
+    [field: SerializeField]
+    public float InteractDistance
+    { get; private set; }
+
     private void Awake()
     {
         SetInputListeners();
@@ -103,6 +111,8 @@ public class PlayerController : MonoBehaviour
 
             IsJumpPressed = false;
         }
+
+        InteractLoop();
     }
 
     private void LateUpdate()
@@ -131,6 +141,23 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         PlayerControl.CharacterControls.Disable();
+    }
+
+    public void InteractLoop()
+    {
+        if (IsInteractPressed)
+        {
+            Ray viewRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            bool RayCastSuccess = Physics.Raycast(viewRay.origin, Camera.main.transform.forward, out RaycastHit interactHit, InteractDistance);
+
+            if (RayCastSuccess)
+            {
+                GameObject hitObject = interactHit.transform.gameObject;
+                Debug.Log($"{hitObject.name.ToString()}");
+            }
+
+            IsInteractPressed = false;
+        }
     }
 
     void HandleMovementAndRotation()
@@ -227,6 +254,16 @@ public class PlayerController : MonoBehaviour
             OnJumpInput(context);
             // Debug.Log("Jump Input Detected");
         };
+
+        PlayerControl.CharacterControls.Interact.started += context =>
+        {
+            OnInteractInput(context);
+        };
+    }
+
+    public void OnInteractInput(InputAction.CallbackContext context)
+    {
+        IsInteractPressed = context.ReadValueAsButton();
     }
 
     public void OnMovementInput(InputAction.CallbackContext context)
@@ -234,7 +271,6 @@ public class PlayerController : MonoBehaviour
         CurrentMovementInput = context.ReadValue<Vector2>();
 
         IsMovementPressed = CurrentMovementInput.x != 0 || CurrentMovementInput.y != 0;
-
     }
 
     public void OnRun(InputAction.CallbackContext context)
