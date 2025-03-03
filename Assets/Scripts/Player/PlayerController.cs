@@ -86,14 +86,13 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovementAndRotation();
 
-
-        Debug.Log($"IsJumpPressed this frame: {IsJumpPressed}");
+        // Debug.Log($"IsJumpPressed this frame: {IsJumpPressed}");
 
         IsGrounded = CheckIfGrounded();
 
         ApplyGravity();
 
-        Debug.Log($"IsCharatcerGrounded this frame: {IsGrounded}");
+        // Debug.Log($"IsCharatcerGrounded this frame: {IsGrounded}");
 
         if (IsJumpPressed)
         {
@@ -108,6 +107,19 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (IsMouseMoving)
+        {
+            // Rotate character left/right (yaw)
+            transform.Rotate(Vector3.up, MouseX * Time.deltaTime);
+
+            // Adjust camera pitch (up/down rotation)
+            CameraPitch -= MouseY * Time.deltaTime;
+            CameraPitch = Mathf.Clamp(CameraPitch, -XClamp, XClamp); // Prevent flipping
+
+            // Apply clamped rotation
+            PlayerCamera.transform.localRotation = Quaternion.Euler(CameraPitch, 0, 0);
+        }
+
         CharacterController.Move(CurrentVelocity * Time.deltaTime);
     }
 
@@ -123,19 +135,6 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovementAndRotation()
     {
-        if (IsMouseMoving)
-        {
-            // Rotate character left/right (yaw)
-            transform.Rotate(Vector3.up, MouseX * Time.deltaTime);
-
-            // Adjust camera pitch (up/down rotation)
-            CameraPitch -= MouseY * Time.deltaTime;
-            CameraPitch = Mathf.Clamp(CameraPitch, -XClamp, XClamp); // Prevent flipping
-
-            // Apply clamped rotation
-            PlayerCamera.transform.localRotation = Quaternion.Euler(CameraPitch, 0, 0);
-        }
-
         Vector3 forward = transform.forward * CurrentMovementInput.y;
         Vector3 right = transform.right * CurrentMovementInput.x;
         Vector3 inputMovement = forward + right;
@@ -165,7 +164,7 @@ public class PlayerController : MonoBehaviour
         return Physics.SphereCast(GroundCheckRayCastSphereOrigin, GroundCheckRadius, Vector3.down, out _, GroundCheckDistance, GroundMask);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(GroundCheckRayCastSphereOrigin, GroundCheckRadius);
     }
@@ -226,7 +225,7 @@ public class PlayerController : MonoBehaviour
         PlayerControl.CharacterControls.Jump.started += context =>
         {
             OnJumpInput(context);
-            Debug.Log("Jump Input Detected");
+            // Debug.Log("Jump Input Detected");
         };
     }
 
@@ -272,7 +271,7 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             IsJumpPressed = context.ReadValueAsButton();
-            Debug.Log($"IsJumpPressed set to {IsJumpPressed}");
+            // Debug.Log($"IsJumpPressed set to {IsJumpPressed}");
         }
     }
 }
