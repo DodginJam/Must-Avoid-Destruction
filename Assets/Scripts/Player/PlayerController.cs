@@ -1,5 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.PlayerLoop;
+using UnityEngine.Rendering.PostProcessing;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 
@@ -73,10 +76,6 @@ public class PlayerController : MonoBehaviour
     public bool IsInteractPressed
     { get; private set; }
 
-    [field: SerializeField]
-    public float InteractDistance
-    { get; private set; }
-
     private void Awake()
     {
         SetInputListeners();
@@ -87,6 +86,8 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        StartCoroutine(CheckDepthOfField(0.1f));
     }
 
     // Update is called once per frame
@@ -143,20 +144,116 @@ public class PlayerController : MonoBehaviour
         PlayerControl.CharacterControls.Disable();
     }
 
+    /// <summary>
+    /// Interaction logic for assessing if a gameobject or its parent contains a script that implements the interactable interface and call that object interaction method.
+    /// </summary>
     public void InteractLoop()
     {
+        // Check for if the input for inteaction of pressed by the player.
         if (IsInteractPressed)
         {
+            // On button press, send out a raycast for any information on any object it hits.
             Ray viewRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            bool RayCastSuccess = Physics.Raycast(viewRay.origin, Camera.main.transform.forward, out RaycastHit interactHit, InteractDistance);
+            bool rayCastSuccess = Physics.Raycast(viewRay.origin, Camera.main.transform.forward, out RaycastHit interactHit);
+            IInteractable interactiveInterface = null;
+            bool isInDistanceAndEnabled = false;
 
-            if (RayCastSuccess)
+            // If an object was hit, check the gameobject that was hit.
+            if (rayCastSuccess)
             {
                 GameObject hitObject = interactHit.transform.gameObject;
-                Debug.Log($"{hitObject.name.ToString()}");
+
+                // If the gameobject has a script component that implements IInteractable interface start interaction distance check.
+                if (CheckIfObjectIsInteractive(hitObject, out interactiveInterface))
+                {
+                    if (interactiveInterface.CheckIfInteractionAllowed(IInteractable.GetInteractionDistance(viewRay.origin, interactHit.point)))
+                    {
+                        interactiveInterface.OnInteraction();
+                        isInDistanceAndEnabled = true;
+                    }
+                    else
+                    {
+                        isInDistanceAndEnabled = false;
+                    }
+                }
+                // Else if the gameobjects parent has a script component that implements IInteractable interface, start interaction distance check.
+                else if (hitObject.transform.parent != null && CheckIfObjectIsInteractive(hitObject.transform.parent.gameObject, out interactiveInterface))
+                {
+                    if (interactiveInterface.CheckIfInteractionAllowed(IInteractable.GetInteractionDistance(viewRay.origin, interactHit.point)))
+                    {
+                        interactiveInterface.OnInteraction();
+                        isInDistanceAndEnabled = true;
+                    }
+                    else
+                    {
+                        isInDistanceAndEnabled = false;
+                    }
+                }
             }
 
+            // Draws ray colour depending on hit, interactivness and within distance; if successful interaction: blue. If interactive but too far: yellow. If non-interactive object hit, white. if nothing hit, red.
+            Debug.DrawRay(viewRay.origin, Camera.main.transform.forward * (rayCastSuccess ? interactHit.distance : 1000), (rayCastSuccess ? (interactiveInterface != null) ? (isInDistanceAndEnabled) ? Color.blue : Color.yellow : Color.white : Color.red), 0.5f, false);
+
             IsInteractPressed = false;
+        }
+    }
+
+    /// <summary>
+    /// Checks a given game object for containing a script with an interactable interface supplied and supplies the interactable interface.
+    /// </summary>
+    /// <param name="objectToCheck"></param>
+    /// <param name="interactiveInterface"></param>
+    /// <returns></returns>
+    public bool CheckIfObjectIsInteractive(GameObject objectToCheck, out IInteractable interactiveInterface)
+    {
+        if (objectToCheck.TryGetComponent<IInteractable>(out interactiveInterface))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// Coroutine intended to check the distance to objects being looked at from the centre of the screen outwards and then changing DOF to reflect the distance.
+    /// </summary>
+    /// <param name="timePerCheck"></param>
+    /// <returns></returns>
+    public IEnumerator CheckDepthOfField(float timePerCheck)
+    {
+        // Ensure that volume post process component can be found in scene first and finding the DOF setting element.
+        PostProcessVolume postProcessingVolume = GameObject.FindObjectOfType<PostProcessVolume>();
+        DepthOfField dof = null;
+        bool dofFound = false;
+
+        if (postProcessingVolume.profile.TryGetSettings<DepthOfField>(out dof))
+        {
+            dofFound = true;
+        }
+
+        // Keep looping every given time check and re-check and recast the DOF value.
+        while (true)
+        {
+            Ray viewRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+            if (dofFound && dof != null && Physics.Raycast(viewRay.origin, Camera.main.transform.forward, out RaycastHit interactHit))
+            {
+                float targetValue = Vector3.Distance(viewRay.origin, interactHit.point);
+
+                dof.focusDistance.Override(Mathf.Clamp(targetValue, 0.7f, targetValue));
+
+                // The volume must be disabled and then enabled to allow changes to take place.
+                postProcessingVolume.enabled = false;
+                postProcessingVolume.enabled = true;
+            }
+            else
+            {
+                Debug.LogError("Error with DoF element of post-processing not found");
+            }
+
+            yield return new WaitForSeconds(timePerCheck);
         }
     }
 
