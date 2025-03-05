@@ -4,7 +4,6 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    [SerializeField]
     public float InteractionDistance
     { get; set; }
 
