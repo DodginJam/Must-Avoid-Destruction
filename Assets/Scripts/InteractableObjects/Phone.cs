@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Phone : MonoBehaviour, IInteractable
+public class Phone : MonoBehaviour, IInteractable, ISoundPlayer
 {
     [field: SerializeField]
     public float InteractionDistance
@@ -21,6 +21,34 @@ public class Phone : MonoBehaviour, IInteractable
     public Material DefaultMaterial
     { get; set; }
 
+
+    public PhoneStatus Status
+    { get; set; } = PhoneStatus.Quiet;
+
+
+    [field: SerializeField, Header("Sound")]
+    public AudioSource AudioSource
+    { get; set; }
+
+    [field: SerializeField]
+    public AudioClip PhoneRinging
+    { get; set; }
+
+    [field: SerializeField]
+    public AudioClip PhonePickUp
+    { get; set; }
+
+    [field: SerializeField]
+    public AudioClip PhonePutDown
+    { get; set; }
+
+    [field: SerializeField]
+    public AudioClip[] PhoneTalking
+    { get; set; }
+
+    public bool StartedPlayingNewSound
+    { get; set; } = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +65,12 @@ public class Phone : MonoBehaviour, IInteractable
 
     public void OnInteraction()
     {
-        Debug.Log("Interaction Acheieved.");
+        if (Status == PhoneStatus.Ringing)
+        {
+            AudioSource.Stop();
+            IsInteractionEnabled = false;
+            Status = PhoneStatus.PickedUp;
+        }
     }
 
     public void OnMouseEnter()
@@ -88,5 +121,14 @@ public class Phone : MonoBehaviour, IInteractable
                 IInteractable.ChangeInteractableMaterial(mesh, DefaultMaterial);
             }
         }
+    }
+
+    public enum PhoneStatus
+    {
+        Quiet,
+        Ringing,
+        PickedUp,
+        Talking,
+        Putdown
     }
 }

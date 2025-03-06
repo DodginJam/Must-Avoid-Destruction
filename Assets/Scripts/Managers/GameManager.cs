@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,9 @@ public class GameManager : MonoBehaviour
     public AlertLevelDisplay AlertDisplay
     {  get; private set; }
 
+    [field: SerializeField]
     public AvailableGameStates AllGameStates
-    { get; private set; } = new AvailableGameStates();
+    { get; private set; }
 
     public GameState_Base CurrentGameState
     { get; private set; }
@@ -68,17 +70,6 @@ public class GameManager : MonoBehaviour
         CurrentGameState.EnterState(this);
     }
 
-    public class AvailableGameStates
-    {
-        public GameState_StartGame StartGame { get; private set; } = new GameState_StartGame();
-        public GameState_GameOver GameOver { get; private set; } = new GameState_GameOver();
-        public GameState_GameWin GameWin { get; private set; } = new GameState_GameWin();
-        public GameState_DisplayOutcome DisplayOutcome { get; private set; } = new GameState_DisplayOutcome();
-        public GameState_ProcessAnswer ProcessAnswer { get; private set; } = new GameState_ProcessAnswer();
-        public GameState_AwaitPlayerAnswer AwaitPlayerAnswer { get; private set; } = new GameState_AwaitPlayerAnswer();
-        public GameState_DisplayProblem DisplayProblem { get; private set; } = new GameState_DisplayProblem();
-    }
-
     public void SetAlertStatus(int newAlertLevel)
     {
         AlertLevels.SetAlertLevel(newAlertLevel);
@@ -93,5 +84,24 @@ public class GameManager : MonoBehaviour
         AlertLevels.SetAlertLevelColour(AlertLevels.CurrentAlertLevel);
         AlertDisplay.DisplayText(AlertLevels);
         AlertDisplay.ChangeDisplayEmissionColour(AlertLevels.CurrentColorDisplay);
+    }
+
+    [Serializable]
+    public class AvailableGameStates
+    {
+        [field: SerializeField]
+        public GameState_StartGame StartGame { get; private set; }
+        [field: SerializeField]
+        public GameState_GameOver GameOver { get; private set; }
+        [field: SerializeField]
+        public GameState_GameWin GameWin { get; private set; }
+        [field: SerializeField]
+        public GameState_DisplayOutcome DisplayOutcome { get; private set; }
+        [field: SerializeField]
+        public GameState_ProcessAnswer ProcessAnswer { get; private set; }
+        [field: SerializeField]
+        public GameState_AwaitPlayerAnswer AwaitPlayerAnswer { get; private set; }
+        [field: SerializeField]
+        public GameState_DisplayProblem DisplayProblem { get; private set; }
     }
 }

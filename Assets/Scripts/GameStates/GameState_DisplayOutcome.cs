@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class GameState_DisplayOutcome : GameState_Base
 {
     public override void EnterState(GameManager gameManager)
