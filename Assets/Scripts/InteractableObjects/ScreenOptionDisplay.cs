@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using static Crises_SO;
 
-public class ScreenOptionDisplay : MonoBehaviour, IInteractable, IDisplayable
+public class ScreenOptionDisplay : ScreenDisplay, IInteractable
 {
     [field: SerializeField]
     public float InteractionDistance
@@ -13,22 +13,8 @@ public class ScreenOptionDisplay : MonoBehaviour, IInteractable, IDisplayable
     public bool IsInteractionEnabled
     { get; set; }
 
-    [field: SerializeField]
-    public TextMeshProUGUI TitleTextDisplay
-    { get; set; }
-
-    [field: SerializeField]
-    public TextMeshProUGUI DescriptionTextDisplay
-    { get; set; }
-
-    [field: SerializeField]
-    public MeshRenderer DisplayMeshRenderer
-    { get; set; }
-
     public ResolutionOption CurrentDisplayedOption
     { get; set; }
-
-
 
     [field: SerializeField]
     public Material HighLightMaterial
@@ -56,7 +42,7 @@ public class ScreenOptionDisplay : MonoBehaviour, IInteractable, IDisplayable
         // Need to have already passed the infroamtion held about the current displayed resolution option to the game manager, or atleast pass the resulting score to be analysed for raising or keeping DEFCON value.
     }
 
-    public void DisplayText<T>(T type)
+    public override void DisplayText<T>(T type)
     {
         ResolutionOption option = null;
         if (type != null)
@@ -77,27 +63,6 @@ public class ScreenOptionDisplay : MonoBehaviour, IInteractable, IDisplayable
         {
             Debug.LogError("Error");
         }
-    }
-
-    public void ClearText()
-    {
-        TitleTextDisplay.text = string.Empty;
-        TitleTextDisplay.text = string.Empty;
-    }
-
-    public void ToggleDisplay(bool setActiveState)
-    {
-        if (setActiveState)
-        {
-            DisplayMeshRenderer.material.EnableKeyword("_EMISSION");
-        }
-        else
-        {
-            DisplayMeshRenderer.material.DisableKeyword("_EMISSION");
-        }
-
-        TitleTextDisplay.enabled = setActiveState;
-        DescriptionTextDisplay.enabled = setActiveState;
     }
 
     public void OnMouseEnter()

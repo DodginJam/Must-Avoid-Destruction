@@ -4,14 +4,14 @@ using TMPro;
 using UnityEngine;
 using static Crises_SO;
 
-public class ScreenTitleDisplay : ScreenDisplay
+public class AlertLevelDisplay : ScreenDisplay
 {
     public override void DisplayText<T>(T type)
     {
-        Crises_SO crisis = null;
+        AlertLevels alertLevels = null;
         if (type != null)
         {
-            crisis = type as Crises_SO;
+            alertLevels = type as AlertLevels;
         }
         else
         {
@@ -19,10 +19,9 @@ public class ScreenTitleDisplay : ScreenDisplay
 
         }
 
-        if (crisis != null)
+        if (alertLevels != null)
         {
-            TitleTextDisplay.text = crisis.CrisisTitle;
-            DescriptionTextDisplay.text = crisis.CrisisDescription;
+            DescriptionTextDisplay.text = alertLevels.CurrentAlertLevel.ToString();
         }
         else
         {

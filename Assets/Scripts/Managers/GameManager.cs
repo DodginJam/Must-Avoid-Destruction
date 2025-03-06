@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int[] AlertLevels
-    { get; private set; } = new int[] { 1, 2, 3, 4, 5 };
-
-    public int CurrentAlertLevel
-    { get; private set; }
-
     public Crises_SO CurrentCrisis
     { get; private set; }
 
@@ -17,10 +11,17 @@ public class GameManager : MonoBehaviour
     public Crises_SO[] AllCrisis
     { get; private set; }
 
+    [field: SerializeField]
+    public AlertLevels AlertLevels 
+    { get; private set; }
+
     public AvailableGameStates AllGameStates
     { get; private set; } = new AvailableGameStates();
 
     public GameState_Base CurrentGameState
+    { get; private set; }
+
+    public DisplayOptions ScreenDisplays
     { get; private set; }
 
     // Start is called before the first frame update

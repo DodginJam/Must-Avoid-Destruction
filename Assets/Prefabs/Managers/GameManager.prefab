@@ -47,6 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AllCrisis>k__BackingField:
   - {fileID: 11400000, guid: fffea32e91a8f0a4ba1272db79a36653, type: 2}
+  <AlertLevels>k__BackingField:
+    <AlertLevelColours>k__BackingField:
+    - {r: 0, g: 0.91507196, b: 1, a: 0}
+    - {r: 0.05281806, g: 1, b: 0, a: 0}
+    - {r: 0.98469853, g: 1, b: 0, a: 0}
+    - {r: 1, g: 0.6428995, b: 0, a: 0}
+    - {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &4080997054592389013
 MonoBehaviour:
   m_ObjectHideFlags: 0

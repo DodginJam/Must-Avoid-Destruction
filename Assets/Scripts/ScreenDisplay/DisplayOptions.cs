@@ -31,6 +31,9 @@ public class DisplayOptions : MonoBehaviour
         
     }
 
+    // For each resolution options.
+    // Chose the one of the screens in order, place information about that resolution options.
+    // Enable it to be interactable.
     public void DisplayResolutionOptions(Crises_SO crisis)
     {
         // Null check the parameter passed.
@@ -40,6 +43,7 @@ public class DisplayOptions : MonoBehaviour
             return;
         }
 
+        // Ensure that if the screens displays are not qeual to the resolution options, return an error.
         for (int i = 0; i < crisis.OptionsForResolution.Length; i++)
         {
             if (crisis.OptionsForResolution.Length > ScreenOptionDisplays.Count)
@@ -64,8 +68,5 @@ public class DisplayOptions : MonoBehaviour
         }
 
         ScreenTitleDisplay.DisplayText(crisis);
-        // For each resolution options.
-        // Chose the one of the screens in order, place information about that resolutionn options.
-        // Enable it to be interactable.
     }
 }
