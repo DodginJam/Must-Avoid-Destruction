@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2619779397453920483}
   - component: {fileID: 5029973598319223755}
   - component: {fileID: 853263450340729007}
+  - component: {fileID: 5945489552179889037}
   m_Layer: 0
   m_Name: PhoneLight
   m_TagString: Untagged
@@ -105,6 +106,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5945489552179889037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374698486367475556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50f493526938a54ebc15cd75775fdaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541113673451219764
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractionDistance>k__BackingField: 2
+  <HighLightMaterial>k__BackingField: {fileID: 2100000, guid: a7995cf51f8ccc948ae28406c0063fa3, type: 2}
 --- !u!1 &2570101969733553749
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +179,7 @@ GameObject:
   - component: {fileID: 5818329670001791718}
   - component: {fileID: 863013104628636058}
   - component: {fileID: 548629261632841951}
+  - component: {fileID: 4754742935938343195}
   m_Layer: 0
   m_Name: PhoneBase
   m_TagString: Untagged
@@ -258,6 +273,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4754742935938343195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2570101969733553749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50f493526938a54ebc15cd75775fdaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5110976923480735328
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +297,7 @@ GameObject:
   - component: {fileID: 322697248222111521}
   - component: {fileID: 2474649077000832796}
   - component: {fileID: 4455213226104852263}
+  - component: {fileID: 3578368527325899974}
   m_Layer: 0
   m_Name: PhoneHandle
   m_TagString: Untagged
@@ -363,3 +391,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3578368527325899974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110976923480735328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50f493526938a54ebc15cd75775fdaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

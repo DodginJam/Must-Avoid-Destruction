@@ -124,6 +124,7 @@ MonoBehaviour:
   <TitleTextDisplay>k__BackingField: {fileID: 4865303465174947697}
   <DescriptionTextDisplay>k__BackingField: {fileID: 8828797615049030259}
   <DisplayMeshRenderer>k__BackingField: {fileID: 5757681972754848186}
+  <HighLightMaterial>k__BackingField: {fileID: 2100000, guid: e3fa7f965c640db41a2be97bfb9665e4, type: 2}
 --- !u!1 &4159934990875541037
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
     public bool IsInteractPressed
     { get; private set; }
 
+
     private void Awake()
     {
         SetInputListeners();
@@ -204,7 +205,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="objectToCheck"></param>
     /// <param name="interactiveInterface"></param>
     /// <returns></returns>
-    public bool CheckIfObjectIsInteractive(GameObject objectToCheck, out IInteractable interactiveInterface)
+    public static bool CheckIfObjectIsInteractive(GameObject objectToCheck, out IInteractable interactiveInterface)
     {
         if (objectToCheck.TryGetComponent<IInteractable>(out interactiveInterface))
         {

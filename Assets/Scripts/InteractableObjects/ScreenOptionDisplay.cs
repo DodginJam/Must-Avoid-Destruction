@@ -28,10 +28,19 @@ public class ScreenOptionDisplay : MonoBehaviour, IInteractable, IDisplayable
     public ResolutionOption CurrentDisplayedOption
     { get; set; }
 
+
+
+    [field: SerializeField]
+    public Material HighLightMaterial
+    { get; set; }
+
+    public Material DefaultMaterial
+    { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        DefaultMaterial = DisplayMeshRenderer.material;
     }
 
     // Update is called once per frame
@@ -45,5 +54,26 @@ public class ScreenOptionDisplay : MonoBehaviour, IInteractable, IDisplayable
         Debug.Log("Interaction Acheieved.");
 
         // Need to pass the infroamtion held about the current displayed resolution option to the game manager, or atleast pass the resulting score to be analysed for raising or keeping DEFCON value.
+    }
+
+    public void OnMouseEnter()
+    {
+        if (IsInteractionEnabled && Vector3.Distance(Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0)), transform.position) < InteractionDistance)
+        {
+            IInteractable.ChangeInteractableMaterial(DisplayMeshRenderer, DefaultMaterial);
+        }
+    }
+
+    public void OnMouseExit()
+    {
+        if (IsInteractionEnabled && Vector3.Distance(Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0)), transform.position) < InteractionDistance)
+        {
+            IInteractable.ChangeInteractableMaterial(DisplayMeshRenderer, DefaultMaterial);
+        }
+    }
+
+    public void OnMouseOver()
+    {
+ 
     }
 }

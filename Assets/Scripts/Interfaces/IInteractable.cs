@@ -10,6 +10,12 @@ public interface IInteractable
     public bool IsInteractionEnabled
     { get; set; }
 
+    public Material HighLightMaterial
+    { get; set; } 
+
+    public Material DefaultMaterial
+    { get; set; }
+
     public abstract void OnInteraction();
 
     public static float GetInteractionDistance(Vector3 startLocation, Vector3 endLocation)
@@ -33,4 +39,15 @@ public interface IInteractable
             return false;
         }
     }
+
+    public static void ChangeInteractableMaterial(MeshRenderer currentRenderer, Material newMaterial)
+    {
+        currentRenderer.material = newMaterial;
+    }
+
+    public abstract void OnMouseEnter();
+
+    public abstract void OnMouseExit();
+
+    public abstract void OnMouseOver();
 }

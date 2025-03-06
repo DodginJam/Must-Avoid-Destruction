@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AdvisorScriptableObject>k__BackingField: {fileID: 0}
   <InteractionDistance>k__BackingField: 20
+  <HighLightMaterial>k__BackingField: {fileID: 2100000, guid: a7995cf51f8ccc948ae28406c0063fa3, type: 2}
 --- !u!1 &6856036160381393431
 GameObject:
   m_ObjectHideFlags: 0
