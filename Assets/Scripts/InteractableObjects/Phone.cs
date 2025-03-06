@@ -9,7 +9,7 @@ public class Phone : MonoBehaviour, IInteractable
     { get; set; }
 
     public bool IsInteractionEnabled
-    { get; set; } = true;
+    { get; set; }
 
     public MeshRenderer[] Parts
     { get; set; }

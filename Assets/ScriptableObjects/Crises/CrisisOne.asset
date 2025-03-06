@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3372912547316354baddd3d48d90c6e5, type: 3}
   m_Name: CrisisOne
   m_EditorClassIdentifier: 
-  <Negotiator>k__BackingField: {fileID: 0}
+  <Negotiator>k__BackingField: {fileID: 11400000, guid: 76b9e4c14d99b01429fd8069b0e31c6c, type: 2}
   <CrisisTitle>k__BackingField: Enemy troops at border!
   <CrisisDescription>k__BackingField: The enemy military forces have gathered on
-    our border, bringing forth troops numbers and and conducting exercises.
+    our border, bringing forth troop numbers and and conducting exercises.
   <SeverityLevel>k__BackingField: 1
   <OptionsForResolution>k__BackingField:
   - <Title>k__BackingField: Summon the enemy nations ambassador.
@@ -33,3 +33,8 @@ MonoBehaviour:
     <ResolutionLevel>k__BackingField: 2
     <JobRoleAppeal>k__BackingField: 2
     <JobRoleDisgust>k__BackingField: 0
+  - <Title>k__BackingField: Commit to no actions.
+    <Detail>k__BackingField: 
+    <ResolutionLevel>k__BackingField: 0
+    <JobRoleAppeal>k__BackingField: 3
+    <JobRoleDisgust>k__BackingField: 1

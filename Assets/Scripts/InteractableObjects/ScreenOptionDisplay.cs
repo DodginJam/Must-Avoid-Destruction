@@ -53,7 +53,51 @@ public class ScreenOptionDisplay : MonoBehaviour, IInteractable, IDisplayable
     {
         Debug.Log("Interaction Acheieved.");
 
-        // Need to pass the infroamtion held about the current displayed resolution option to the game manager, or atleast pass the resulting score to be analysed for raising or keeping DEFCON value.
+        // Need to have already passed the infroamtion held about the current displayed resolution option to the game manager, or atleast pass the resulting score to be analysed for raising or keeping DEFCON value.
+    }
+
+    public void DisplayText<T>(T type)
+    {
+        ResolutionOption option = null;
+        if (type != null)
+        {
+            option = type as ResolutionOption;
+        }
+        else
+        {
+            Debug.LogError("Error");
+        }
+
+        if (option != null)
+        {
+            TitleTextDisplay.text = option.Title;
+            TitleTextDisplay.text = option.Title;
+        }
+        else
+        {
+            Debug.LogError("Error");
+        }
+    }
+
+    public void ClearText()
+    {
+        TitleTextDisplay.text = string.Empty;
+        TitleTextDisplay.text = string.Empty;
+    }
+
+    public void ToggleDisplay(bool setActiveState)
+    {
+        if (setActiveState)
+        {
+            DisplayMeshRenderer.material.EnableKeyword("_EMISSION");
+        }
+        else
+        {
+            DisplayMeshRenderer.material.DisableKeyword("_EMISSION");
+        }
+
+        TitleTextDisplay.enabled = setActiveState;
+        DescriptionTextDisplay.enabled = setActiveState;
     }
 
     public void OnMouseEnter()

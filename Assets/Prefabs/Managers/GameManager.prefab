@@ -60,3 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <GameManagerScript>k__BackingField: {fileID: 4535937895527471658}
+  <ScreenOptionDisplays>k__BackingField:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  <ScreenTitleDisplay>k__BackingField: {fileID: 0}

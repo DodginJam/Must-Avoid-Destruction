@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ac6ffda30365545a27667ebb30f964, type: 3}
   m_Name: NegotiatorOne
   m_EditorClassIdentifier: 
-  <NegotiatorName>k__BackingField: 
+  <NegotiatorName>k__BackingField: Ivan Killian
+  <Picture>k__BackingField: {fileID: 0}
   <MilitantTendency>k__BackingField: 0
-  <SeniorityPosition>k__BackingField: 0
+  <Position>k__BackingField: 0

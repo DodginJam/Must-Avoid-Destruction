@@ -15,42 +15,9 @@ public interface IDisplayable
     public MeshRenderer DisplayMeshRenderer
     { get; set; }
 
-    public void DisplayText(ResolutionOption option)
-    {
-        if (option != null)
-        {
-            TitleTextDisplay.text = option.Title;
-            TitleTextDisplay.text = option.Title;
-        }
-        else
-        {
-            Debug.LogError("The passed ResolutionOption is null.");
-        }
-    }
+    public void ToggleDisplay(bool setActiveState);
 
-    public void ClearText()
-    {
-        TitleTextDisplay.text = string.Empty;
-        TitleTextDisplay.text = string.Empty;
-    }
+    public void DisplayText<T>(T crisisOrResolutionOption);
 
-    public void ToggleDisplay(bool setActiveState)
-    {
-        if (setActiveState)
-        {
-            DisplayMeshRenderer.material.EnableKeyword("_EMISSION");
-        }
-        else
-        {
-            DisplayMeshRenderer.material.DisableKeyword("_EMISSION");
-        }
-
-        TitleTextDisplay.enabled = setActiveState;
-        DescriptionTextDisplay.enabled = setActiveState;
-    }
-
-    public void DisplayResolutionOptions(ResolutionOption resolutionOption)
-    {
-
-    }
+    public void ClearText();
 }
