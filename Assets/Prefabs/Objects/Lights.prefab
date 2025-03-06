@@ -82,6 +82,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Range
+      value: 21.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9037385
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Intensity
+      value: 1.04
+      objectReference: {fileID: 0}
     - target: {fileID: 5490120204321583059, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
       propertyPath: m_Name
       value: LightBulb (1)
@@ -144,6 +164,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Range
+      value: 21.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9037385
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Intensity
+      value: 1.04
+      objectReference: {fileID: 0}
     - target: {fileID: 5490120204321583059, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
       propertyPath: m_Name
       value: LightBulb
@@ -205,6 +245,26 @@ PrefabInstance:
     - target: {fileID: 67564047860626619, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Range
+      value: 21.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9037385
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926072086871806356, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
+      propertyPath: m_Intensity
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 5490120204321583059, guid: 7a57b445a3ffa91459a5d7da8b8e3605, type: 3}
       propertyPath: m_Name

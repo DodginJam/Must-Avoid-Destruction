@@ -1114,54 +1114,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lights
       objectReference: {fileID: 0}
-    - target: {fileID: 3080896976158270957, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Range
-      value: 21.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080896976158270957, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Color.b
-      value: 0.5990566
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080896976158270957, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9037385
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080896976158270957, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080896976158270957, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Intensity
-      value: 1.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080896976158270957, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_BounceIntensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076728318058330382, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Range
-      value: 21.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076728318058330382, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Color.b
-      value: 0.5990566
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076728318058330382, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9037385
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076728318058330382, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076728318058330382, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Intensity
-      value: 1.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076728318058330382, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_BounceIntensity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4195372221671057756, guid: 9ce347fefce69994692103daabaabf11, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1201,30 +1153,6 @@ PrefabInstance:
     - target: {fileID: 4195372221671057756, guid: 9ce347fefce69994692103daabaabf11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6412629684298725901, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Range
-      value: 21.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 6412629684298725901, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Color.b
-      value: 0.5990566
-      objectReference: {fileID: 0}
-    - target: {fileID: 6412629684298725901, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9037385
-      objectReference: {fileID: 0}
-    - target: {fileID: 6412629684298725901, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6412629684298725901, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_Intensity
-      value: 1.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 6412629684298725901, guid: 9ce347fefce69994692103daabaabf11, type: 3}
-      propertyPath: m_BounceIntensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1711,6 +1639,10 @@ PrefabInstance:
       propertyPath: <ScreenOptionDisplays>k__BackingField.Array.data[3]
       value: 
       objectReference: {fileID: 405018032}
+    - target: {fileID: 4535937895527471658, guid: e84b20c1a6dfa3b4ea0e5a1965e7d2e1, type: 3}
+      propertyPath: <AlertDisplay>k__BackingField
+      value: 
+      objectReference: {fileID: 8979206800419789671}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1960,6 +1892,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f89434027722a240ab43db51c2e80e3, type: 3}
+--- !u!114 &8979206800419789671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 265195429713486250, guid: 2fc25c1339f0a224da9a784aaf5a12c7, type: 3}
+  m_PrefabInstance: {fileID: 381073770784100824}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ec8e6d388d66b44803997804cc6057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

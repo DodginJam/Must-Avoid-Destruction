@@ -54,6 +54,10 @@ MonoBehaviour:
     - {r: 0.98469853, g: 1, b: 0, a: 0}
     - {r: 1, g: 0.6428995, b: 0, a: 0}
     - {r: 1, g: 0, b: 0, a: 0}
+    <GameManager>k__BackingField: {fileID: 4535937895527471658}
+  <AlertDisplay>k__BackingField: {fileID: 0}
+  <ScreenDisplays>k__BackingField: {fileID: 4080997054592389013}
+  <StartingAlertLevel>k__BackingField: 2
 --- !u!114 &4080997054592389013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8146b40e9613a4fa9dbe1777cfeaa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <GameManagerScript>k__BackingField: {fileID: 4535937895527471658}
   <ScreenOptionDisplays>k__BackingField:
   - {fileID: 0}
   - {fileID: 0}

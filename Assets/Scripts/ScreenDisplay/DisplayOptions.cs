@@ -7,10 +7,6 @@ using static Crises_SO;
 public class DisplayOptions : MonoBehaviour
 {
     [field: SerializeField]
-    public GameManager GameManagerScript
-    {  get; private set; }
-
-    [field: SerializeField]
     public List<ScreenOptionDisplay> ScreenOptionDisplays
     { get; set; }
 
@@ -22,7 +18,7 @@ public class DisplayOptions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DisplayResolutionOptions(GameManagerScript.AllCrisis[0]);
+        
     }
 
     // Update is called once per frame

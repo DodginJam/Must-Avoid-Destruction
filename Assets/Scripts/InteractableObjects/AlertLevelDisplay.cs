@@ -28,4 +28,10 @@ public class AlertLevelDisplay : ScreenDisplay
             Debug.LogError("Error");
         }
     }
+
+    public void ChangeDisplayEmissionColour(Color newEmissionColor)
+    {
+        DisplayMeshRenderer.material.SetColor("_EmissionColor", newEmissionColor);
+    }
+
 }

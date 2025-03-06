@@ -15,25 +15,57 @@ public class GameManager : MonoBehaviour
     public AlertLevels AlertLevels 
     { get; private set; }
 
+    [field: SerializeField]
+    public AlertLevelDisplay AlertDisplay
+    {  get; private set; }
+
     public AvailableGameStates AllGameStates
     { get; private set; } = new AvailableGameStates();
 
     public GameState_Base CurrentGameState
     { get; private set; }
 
+    [field: SerializeField]
     public DisplayOptions ScreenDisplays
     { get; private set; }
+
+    [field: SerializeField, Range(1, 5)]
+    public int StartingAlertLevel
+    { get; private set; } = 2;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        CurrentGameState = AllGameStates.StartGame;
+        SwitchState(AllGameStates.StartGame);
     }
 
     // Update is called once per frame
     void Update()
     {
-        CurrentGameState.UpdateState(this);
+        if (CurrentGameState != null)
+        {
+            CurrentGameState.UpdateState(this);
+        }
+        else
+        {
+            Debug.LogWarning("CurrentGameState is null - only acceptable in game start.");
+        }
+    }
+
+    public void SwitchState(GameState_Base newState)
+    {
+        if (CurrentGameState == null)
+        {
+            Debug.LogWarning("CurrentGameState is null - only acceptable in game start.");
+        }
+        else
+        {
+            CurrentGameState.ExitState(this);
+        }
+
+        CurrentGameState = newState;
+        CurrentGameState.EnterState(this);
     }
 
     public class AvailableGameStates
@@ -45,5 +77,21 @@ public class GameManager : MonoBehaviour
         public GameState_ProcessAnswer ProcessAnswer { get; private set; } = new GameState_ProcessAnswer();
         public GameState_AwaitPlayerAnswer AwaitPlayerAnswer { get; private set; } = new GameState_AwaitPlayerAnswer();
         public GameState_DisplayProblem DisplayProblem { get; private set; } = new GameState_DisplayProblem();
+    }
+
+    public void SetAlertStatus(int newAlertLevel)
+    {
+        AlertLevels.SetAlertLevel(newAlertLevel);
+        AlertLevels.SetAlertLevelColour(newAlertLevel);
+        AlertDisplay.DisplayText(AlertLevels);
+        AlertDisplay.ChangeDisplayEmissionColour(AlertLevels.CurrentColorDisplay);
+    }
+
+    public void ChangeAlertState(int incrementAmount)
+    {
+        AlertLevels.ModifyAlertLevel(incrementAmount);
+        AlertLevels.SetAlertLevelColour(AlertLevels.CurrentAlertLevel);
+        AlertDisplay.DisplayText(AlertLevels);
+        AlertDisplay.ChangeDisplayEmissionColour(AlertLevels.CurrentColorDisplay);
     }
 }

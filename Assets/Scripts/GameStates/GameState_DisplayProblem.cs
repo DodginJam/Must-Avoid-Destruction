@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameState_DisplayProblem : GameState_Base
 {
-    protected override void EnterState(GameManager gameManager)
+    public override void EnterState(GameManager gameManager)
     {
 
     }
@@ -14,7 +14,7 @@ public class GameState_DisplayProblem : GameState_Base
 
     }
 
-    protected override void ExitState(GameManager gameManager)
+    public override void ExitState(GameManager gameManager)
     {
 
     }

@@ -30,8 +30,22 @@ public class AlertLevels
         return CurrentAlertLevel;
     }
 
-    public void ModifyAlertLevelColour(int newAlertLevel)
+    /// <summary>
+    /// Change the alert level by a given amount and then return the new alert level.
+    /// </summary>
+    /// <param name="incrementValue"></param>
+    /// <returns></returns>
+    public void SetAlertLevel(int setValue)
     {
+        CurrentAlertLevel = Mathf.Clamp(setValue, AlertLevelsArray[0], AlertLevelsArray[AlertLevelsArray.Length - 1]);
+    }
 
+    /// <summary>
+    /// Assign the colour level
+    /// </summary>
+    /// <param name="newAlertLevel"></param>
+    public void SetAlertLevelColour(int newAlertLevel)
+    {
+        CurrentColorDisplay = AlertLevelColours[Mathf.Clamp(newAlertLevel - 1, AlertLevelsArray[0], AlertLevelsArray[AlertLevelsArray.Length - 1])];
     }
 }

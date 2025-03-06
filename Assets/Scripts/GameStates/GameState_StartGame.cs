@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameState_StartGame : GameState_Base
 {
-    protected override void EnterState(GameManager gameManager)
+    public override void EnterState(GameManager gameManager)
     {
-
+        gameManager.SetAlertStatus(gameManager.StartingAlertLevel);
     }
 
     public override void UpdateState(GameManager gameManager)
@@ -14,7 +14,7 @@ public class GameState_StartGame : GameState_Base
 
     }
 
-    protected override void ExitState(GameManager gameManager)
+    public override void ExitState(GameManager gameManager)
     {
 
     }
