@@ -34,6 +34,9 @@ public class Crises_SO : ScriptableObject
     public Severity SeverityLevel
     { get; set; }
 
+    public ResolutionOption SelectedResolution
+    { get; set; }
+
     public bool HasBeenResolved
     { get; set; }
 

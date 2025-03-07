@@ -23,6 +23,24 @@ public class ScreenOptionDisplay : ScreenDisplay, IInteractable
     public Material DefaultMaterial
     { get; set; }
 
+    public DisplayOptions DisplayManagerScript
+    { get; private set; }
+
+    void Awake()
+    {
+        if (DisplayManagerScript == null)
+        {
+            if (DisplayManagerScript = GameObject.FindObjectOfType<DisplayOptions>())
+            {
+                Debug.Log("DisplayOptions was unassigned, but found.");
+            }
+            else
+            {
+                Debug.Log("Unable to locate DisplayOptions script component in scene.");
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +55,8 @@ public class ScreenOptionDisplay : ScreenDisplay, IInteractable
 
     public void OnInteraction()
     {
-        Debug.Log("Interaction Acheieved.");
-
-        // Need to have already passed the infroamtion held about the current displayed resolution option to the game manager, or atleast pass the resulting score to be analysed for raising or keeping DEFCON value.
+        // On interact, pass the current resolution option selected to the crisis component to then allow it to be seen globally by the state machine states.
+        DisplayManagerScript.GameManagerScript.CurrentCrisis.SelectedResolution = CurrentDisplayedOption;
     }
 
     public override void DisplayText<T>(T type)
