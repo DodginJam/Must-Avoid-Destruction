@@ -63,6 +63,10 @@ public class DisplayOptions : MonoBehaviour
             }
         }
 
+        // Set the screens to be interactable.
+        IInteractable.EnableInteraction(ScreenOptionDisplays.ToArray(), true);
+
+        // Display the text.
         ScreenTitleDisplay.DisplayText(crisis);
     }
 }

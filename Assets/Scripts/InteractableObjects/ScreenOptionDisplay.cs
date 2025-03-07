@@ -69,7 +69,7 @@ public class ScreenOptionDisplay : ScreenDisplay, IInteractable
     {
         if (IsInteractionEnabled && Vector3.Distance(Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0)), transform.position) < InteractionDistance)
         {
-            IInteractable.ChangeInteractableMaterial(DisplayMeshRenderer, DefaultMaterial);
+            IInteractable.ChangeInteractableMaterial(DisplayMeshRenderer, HighLightMaterial);
         }
     }
 
@@ -83,6 +83,21 @@ public class ScreenOptionDisplay : ScreenDisplay, IInteractable
 
     public void OnMouseOver()
     {
- 
+        if (Vector3.Distance(Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0)), transform.position) < InteractionDistance)
+        {
+            if (IsInteractionEnabled)
+            {
+                IInteractable.ChangeInteractableMaterial(DisplayMeshRenderer, HighLightMaterial);
+            }
+            else
+            {
+                IInteractable.ChangeInteractableMaterial(DisplayMeshRenderer, DefaultMaterial);
+            }
+        }
+        else
+        {
+            IInteractable.ChangeInteractableMaterial(DisplayMeshRenderer, DefaultMaterial);
+
+        }
     }
 }

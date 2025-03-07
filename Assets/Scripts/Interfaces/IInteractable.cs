@@ -45,6 +45,14 @@ public interface IInteractable
         currentRenderer.material = newMaterial;
     }
 
+    public static void EnableInteraction(IInteractable[] interactables, bool activeStatus)
+    {
+        foreach (IInteractable interactiveObject in interactables)
+        {
+            interactiveObject.IsInteractionEnabled = activeStatus;
+        }
+    }
+
     public abstract void OnMouseEnter();
 
     public abstract void OnMouseExit();

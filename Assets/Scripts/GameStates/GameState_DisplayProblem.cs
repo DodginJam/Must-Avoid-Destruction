@@ -57,7 +57,7 @@ public class GameState_DisplayProblem : GameState_Base
             {
                 if (PhoneToPickUp.StartedPlayingNewSound == false)
                 {
-                    ((ISoundPlayer)PhoneToPickUp).PlayAudioTrack(PhoneToPickUp.PhonePickUp, false, 0.5f);
+                    ((ISoundPlayer)PhoneToPickUp).PlayAudioTrack(PhoneToPickUp.PhonePickUp, false, 1f);
                     PhoneToPickUp.StartedPlayingNewSound = true;
                 }
 
@@ -72,7 +72,7 @@ public class GameState_DisplayProblem : GameState_Base
                 if (PhoneToPickUp.StartedPlayingNewSound == false)
                 {
                     int randomIndex = UnityEngine.Random.Range(0, PhoneToPickUp.PhoneTalking.Length);
-                    ((ISoundPlayer)PhoneToPickUp).PlayAudioTrack(PhoneToPickUp.PhoneTalking[randomIndex], false, 0.5f);
+                    ((ISoundPlayer)PhoneToPickUp).PlayAudioTrack(PhoneToPickUp.PhoneTalking[randomIndex], false, 1f);
                     PhoneToPickUp.StartedPlayingNewSound = true;
                 }
 
@@ -92,16 +92,20 @@ public class GameState_DisplayProblem : GameState_Base
         }
         else if (DisplayState == DisplayStatus.DisplayScreen)
         {
-            Debug.LogWarning("Here there should be an animationn of the phone being picked up.");
+            gameManager.ScreenDisplays.DisplayResolutionOptions(gameManager.CurrentCrisis);
+
+            DisplayState = DisplayStatus.ChangeState;
         }
         else if(DisplayState == DisplayStatus.ChangeState)
         {
             gameManager.SwitchState(gameManager.AllGameStates.AwaitPlayerAnswer);
+            Debug.LogWarning("Successfulluy gone through display problems state.");
         }
     }
 
     public override void ExitState(GameManager gameManager)
     {
         TimerCurrent = 0;
+        PhoneToPickUp.Status = Phone.PhoneStatus.Quiet;
     }
 }

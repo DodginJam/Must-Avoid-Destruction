@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitialiseCrisis();
+
         SwitchState(AllGameStates.StartGame);
     }
 
@@ -103,5 +105,47 @@ public class GameManager : MonoBehaviour
         public GameState_AwaitPlayerAnswer AwaitPlayerAnswer { get; private set; }
         [field: SerializeField]
         public GameState_DisplayProblem DisplayProblem { get; private set; }
+    }
+
+    /// <summary>
+    /// Initialise the first crisis on game load, performing null check.
+    /// </summary>
+    public void InitialiseCrisis()
+    {
+        if (AllCrisis != null)
+        {
+            if (AllCrisis[0] != null)
+            {
+                CurrentCrisis = AllCrisis[0];
+            }
+            else
+            {
+                Debug.LogError("The first element of the crisis array is null, unable to continue.");
+            }
+        }
+        else
+        {
+            Debug.LogError("No crisis have been assigned to the crises array. Unable to continue.");
+        }
+    }
+
+    /// <summary>
+    /// Set's the next crisis, and returns true if it is possible. Else, if no more crisis exist further into the array, return false.
+    /// </summary>
+    /// <returns></returns>
+    public bool SetNextCrisis()
+    {
+        int currentCrisisIndex = Array.IndexOf(AllCrisis, CurrentCrisis);
+
+        // If the current index is not the end point, move through array, else bring game to end.
+        if (currentCrisisIndex > AllCrisis.Length - 1)
+        {
+            CurrentCrisis = AllCrisis[currentCrisisIndex + 1];
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
