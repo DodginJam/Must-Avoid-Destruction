@@ -6,7 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Crisis", menuName = "Crisis")]
 public class Crises_SO : ScriptableObject
 {
-    [field: SerializeField]
     public Negotiator_SO Negotiator
     { get; set; }
 

@@ -47,6 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AllCrisis>k__BackingField:
   - {fileID: 11400000, guid: fffea32e91a8f0a4ba1272db79a36653, type: 2}
+  - {fileID: 11400000, guid: ffba6ea1119b6d344b757b367bdb6a7d, type: 2}
+  - {fileID: 11400000, guid: 0aa4c8fe584f0dc4b97537a5c625ab6a, type: 2}
+  - {fileID: 11400000, guid: ad57a040e642ff745a2af005bda89b5e, type: 2}
+  - {fileID: 11400000, guid: 2d4c8be5010fd4842ae483be5fc99e6a, type: 2}
+  - {fileID: 11400000, guid: 31dba5ffb9fe1af4597cc7228a6f913e, type: 2}
+  - {fileID: 11400000, guid: 67f5de16af8327245bcc1eb849fb57ad, type: 2}
   <AlertLevels>k__BackingField:
     <AlertLevelColours>k__BackingField:
     - {r: 0, g: 0.91507196, b: 1, a: 0}
@@ -58,11 +64,25 @@ MonoBehaviour:
   <AllGameStates>k__BackingField:
     <StartGame>k__BackingField:
       <InteractiveButtonToStart>k__BackingField: {fileID: 0}
+    <DisplayOutcome>k__BackingField:
+      <PhoneToPickUp>k__BackingField: {fileID: 0}
+      <TimeUntilRinging>k__BackingField: 5
+      <SoundPlayer>k__BackingField: {fileID: 0}
     <DisplayProblem>k__BackingField:
       <PhoneToPickUp>k__BackingField: {fileID: 0}
       <TimeUntilRinging>k__BackingField: 3
   <ScreenDisplays>k__BackingField: {fileID: 4080997054592389013}
+  <NegotiatorDisplay>k__BackingField: {fileID: 0}
   <StartingAlertLevel>k__BackingField: 2
+  <AllNegotiators>k__BackingField:
+  - {fileID: 11400000, guid: 76b9e4c14d99b01429fd8069b0e31c6c, type: 2}
+  - {fileID: 11400000, guid: d6d179e2b07924c40bf08134f5c2a09c, type: 2}
+  - {fileID: 11400000, guid: 07ef6272fa1bd0143b4e0d0b28cee113, type: 2}
+  - {fileID: 11400000, guid: 4636fe8bcaadb6545a12668dce67828d, type: 2}
+  - {fileID: 11400000, guid: 6c0a7902cbd3cd149a6db97e2c4c8d28, type: 2}
+  - {fileID: 11400000, guid: 17f3b1bba551f344a99e220b126b6183, type: 2}
+  - {fileID: 11400000, guid: 527a3e2bdc4917544bc3b5c72d70980b, type: 2}
+  - {fileID: 11400000, guid: 0fd9e63669a38894c86db356386c2917, type: 2}
 --- !u!114 &4080997054592389013
 MonoBehaviour:
   m_ObjectHideFlags: 0

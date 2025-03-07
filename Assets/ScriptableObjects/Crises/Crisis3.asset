@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3372912547316354baddd3d48d90c6e5, type: 3}
+  m_Name: Crisis3
+  m_EditorClassIdentifier: 
+  <Negotiator>k__BackingField: {fileID: 0}
+  <CrisisTitle>k__BackingField: Political Assassination on Foreign Soil
+  <CrisisDescription>k__BackingField: An enemy politician was assassinated in an
+    allied nation. Their government suspects your involvement.
+  <SeverityLevel>k__BackingField: 1
+  <OptionsForResolution>k__BackingField:
+  - <Title>k__BackingField: Cooperate with an International Investigation
+    <Detail>k__BackingField: "Share intelligence to prove your nation\u2019s innocence."
+    <ResolutionLevel>k__BackingField: 2
+    <JobRoleAppeal>k__BackingField: 0
+    <JobRoleDisgust>k__BackingField: 2
+  - <Title>k__BackingField: Deny Involvement & Strengthen Internal Security
+    <Detail>k__BackingField: Publicly refute claims and protect key figures from
+      retaliation.
+    <ResolutionLevel>k__BackingField: 1
+    <JobRoleAppeal>k__BackingField: 2
+    <JobRoleDisgust>k__BackingField: 3
+  - <Title>k__BackingField: 'Discredit the Deceased Official '
+    <Detail>k__BackingField: Frame the assassination as an internal political maneuver.
+    <ResolutionLevel>k__BackingField: 1
+    <JobRoleAppeal>k__BackingField: 2
+    <JobRoleDisgust>k__BackingField: 0
+  - <Title>k__BackingField: 'Eliminate One of Their Officials in Response '
+    <Detail>k__BackingField: A direct but highly dangerous retaliation.
+    <ResolutionLevel>k__BackingField: 0
+    <JobRoleAppeal>k__BackingField: 1
+    <JobRoleDisgust>k__BackingField: 0

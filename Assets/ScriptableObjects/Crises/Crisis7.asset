@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3372912547316354baddd3d48d90c6e5, type: 3}
+  m_Name: Crisis7
+  m_EditorClassIdentifier: 
+  <Negotiator>k__BackingField: {fileID: 0}
+  <CrisisTitle>k__BackingField: Nuclear Weapon Test Near Borders
+  <CrisisDescription>k__BackingField: The enemy has tested a nuclear weapon near
+    your border.
+  <SeverityLevel>k__BackingField: 0
+  <OptionsForResolution>k__BackingField:
+  - <Title>k__BackingField: Push for a Global Non-Proliferation Treaty
+    <Detail>k__BackingField: Use diplomacy to prevent an arms race.
+    <ResolutionLevel>k__BackingField: 1
+    <JobRoleAppeal>k__BackingField: 0
+    <JobRoleDisgust>k__BackingField: 2
+  - <Title>k__BackingField: 'Strengthen Missile Defense Systems '
+    <Detail>k__BackingField: A defensive approach without escalation.
+    <ResolutionLevel>k__BackingField: 1
+    <JobRoleAppeal>k__BackingField: 1
+    <JobRoleDisgust>k__BackingField: 3
+  - <Title>k__BackingField: 'Conduct a Counter-Test '
+    <Detail>k__BackingField: A show of force to match their escalation
+    <ResolutionLevel>k__BackingField: 1
+    <JobRoleAppeal>k__BackingField: 1
+    <JobRoleDisgust>k__BackingField: 0
+  - <Title>k__BackingField: 'Preemptive Nuclear Strike '
+    <Detail>k__BackingField: The most extreme option, risking mutual destruction.
+    <ResolutionLevel>k__BackingField: 0
+    <JobRoleAppeal>k__BackingField: 2
+    <JobRoleDisgust>k__BackingField: 0

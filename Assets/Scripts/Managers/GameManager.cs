@@ -5,8 +5,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private Crises_SO currentCrisis;
+
     public Crises_SO CurrentCrisis
-    { get; private set; }
+    {
+        get {return currentCrisis; }
+        set 
+        {
+            currentCrisis = value;
+            currentCrisis.Negotiator = AllNegotiators[NegotiatorsTracker];
+            NegotiatorsTracker++;
+        }
+        
+     }
 
     [field: SerializeField]
     public Crises_SO[] AllCrisis
@@ -39,10 +50,19 @@ public class GameManager : MonoBehaviour
     public int StartingAlertLevel
     { get; private set; } = 2;
 
+    [field: SerializeField]
+    public Negotiator_SO[] AllNegotiators
+    { get; private set; }
+
+    public int NegotiatorsTracker
+    { get; private set; } = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        Shuffle(AllNegotiators);
+
         InitialiseCrisis();
 
         SwitchState(AllGameStates.StartGame);
@@ -104,8 +124,6 @@ public class GameManager : MonoBehaviour
         [field: SerializeField]
         public GameState_DisplayOutcome DisplayOutcome { get; private set; }
         [field: SerializeField]
-        public GameState_ProcessAnswer ProcessAnswer { get; private set; }
-        [field: SerializeField]
         public GameState_AwaitPlayerAnswer AwaitPlayerAnswer { get; private set; }
         [field: SerializeField]
         public GameState_DisplayProblem DisplayProblem { get; private set; }
@@ -141,8 +159,10 @@ public class GameManager : MonoBehaviour
     {
         int currentCrisisIndex = Array.IndexOf(AllCrisis, CurrentCrisis);
 
+        Debug.Log($"currentCrisisIndex: {currentCrisisIndex}");
+
         // If the current index is not the end point, move through array, else bring game to end.
-        if (currentCrisisIndex > AllCrisis.Length - 1)
+        if (currentCrisisIndex < AllCrisis.Length - 1)
         {
             CurrentCrisis = AllCrisis[currentCrisisIndex + 1];
             return true;
@@ -150,6 +170,21 @@ public class GameManager : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    /// <summary>
+    /// Thanks to ChatGPT.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="array"></param>
+    public static void Shuffle<T>(T[] array)
+    {
+        int n = array.Length;
+        for (int i = n - 1; i > 0; i--)
+        {
+            int j = UnityEngine.Random.Range(0, i);; // Get a random index from 0 to i
+            (array[i], array[j]) = (array[j], array[i]); // Swap elements
         }
     }
 }

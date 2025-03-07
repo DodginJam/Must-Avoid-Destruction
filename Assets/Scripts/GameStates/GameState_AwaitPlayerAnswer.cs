@@ -28,7 +28,7 @@ public class GameState_AwaitPlayerAnswer : GameState_Base
             Debug.Log($"Successfully selected current solution: {gameManager.CurrentCrisis.SelectedResolution.Title}\nHas been resolved?: {gameManager.CurrentCrisis.HasBeenResolved}");
 
             // Switch state.
-            gameManager.SwitchState(gameManager.AllGameStates.ProcessAnswer);
+            gameManager.SwitchState(gameManager.AllGameStates.DisplayOutcome);
         }
     }
 

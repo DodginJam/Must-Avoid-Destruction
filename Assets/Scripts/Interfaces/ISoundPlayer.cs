@@ -9,6 +9,9 @@ public interface ISoundPlayer
     public AudioSource AudioSource
     { get; set; }
 
+    public bool StartedPlayingNewSound
+    { get; set; }
+
     public void PlayAudioTrack(AudioClip clip, bool allowLooping, float delay = 0, bool manuallyStopPrevious = false, bool isOneShot = false)
     {
         if (manuallyStopPrevious)
