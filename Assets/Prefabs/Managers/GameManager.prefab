@@ -71,6 +71,7 @@ MonoBehaviour:
     <GameWin>k__BackingField:
       <VictorUI>k__BackingField: {fileID: 0}
       <CanvasGroupUI>k__BackingField: {fileID: 0}
+      <SoundPlayer>k__BackingField: {fileID: 0}
     <DisplayOutcome>k__BackingField:
       <PhoneToPickUp>k__BackingField: {fileID: 0}
       <TimeUntilRinging>k__BackingField: 5

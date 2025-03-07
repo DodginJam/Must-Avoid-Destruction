@@ -27,7 +27,7 @@ public class GameState_GameWin : GameState_Base
         CanvasGroupUI.alpha = 0;
         Counter = 0;
 
-        ((ISoundPlayer)SoundPlayer).PlayAudioTrack(SoundPlayer.GameWin, true, 0, true);
+        ((ISoundPlayer)SoundPlayer).PlayAudioTrack(SoundPlayer.GameWin, false, 0, true);
         SoundPlayer.AudioSource.spatialBlend = 0;
         SoundPlayer.AudioSource.volume = 0.20f;
     }
@@ -36,7 +36,7 @@ public class GameState_GameWin : GameState_Base
     {
         if (CanvasGroupUI.alpha != 1)
         {
-            CanvasGroupUI.alpha += Time.deltaTime * Counter;
+            CanvasGroupUI.alpha += Time.deltaTime;
         }
     }
 
