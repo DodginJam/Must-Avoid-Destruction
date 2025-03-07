@@ -64,6 +64,13 @@ MonoBehaviour:
   <AllGameStates>k__BackingField:
     <StartGame>k__BackingField:
       <InteractiveButtonToStart>k__BackingField: {fileID: 0}
+    <GameOver>k__BackingField:
+      <LoseUI>k__BackingField: {fileID: 0}
+      <CanvasGroupUI>k__BackingField: {fileID: 0}
+      <SoundPlayer>k__BackingField: {fileID: 0}
+    <GameWin>k__BackingField:
+      <VictorUI>k__BackingField: {fileID: 0}
+      <CanvasGroupUI>k__BackingField: {fileID: 0}
     <DisplayOutcome>k__BackingField:
       <PhoneToPickUp>k__BackingField: {fileID: 0}
       <TimeUntilRinging>k__BackingField: 5
@@ -73,7 +80,7 @@ MonoBehaviour:
       <TimeUntilRinging>k__BackingField: 3
   <ScreenDisplays>k__BackingField: {fileID: 4080997054592389013}
   <NegotiatorDisplay>k__BackingField: {fileID: 0}
-  <StartingAlertLevel>k__BackingField: 2
+  <StartingAlertLevel>k__BackingField: 1
   <AllNegotiators>k__BackingField:
   - {fileID: 11400000, guid: 76b9e4c14d99b01429fd8069b0e31c6c, type: 2}
   - {fileID: 11400000, guid: d6d179e2b07924c40bf08134f5c2a09c, type: 2}

@@ -48,6 +48,8 @@ MonoBehaviour:
   <AudioSource>k__BackingField: {fileID: 7047802600725664071}
   <Success>k__BackingField: {fileID: 8300000, guid: a95a012e0c4ee4148a0939c0521bdd85, type: 3}
   <Failure>k__BackingField: {fileID: 8300000, guid: c5cbd5731529131449ba3cc79cb7fa0c, type: 3}
+  <GameOver>k__BackingField: {fileID: 8300000, guid: 832e4858905cd174ebdb8d2d128108c3, type: 3}
+  <GameWin>k__BackingField: {fileID: 8300000, guid: 4f33c6ef7987bbc4bacd09a274a0ea38, type: 3}
 --- !u!82 &7047802600725664071
 AudioSource:
   m_ObjectHideFlags: 0

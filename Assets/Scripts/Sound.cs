@@ -16,6 +16,14 @@ public class Sound : MonoBehaviour, ISoundPlayer
     public AudioClip Failure
     { get; private set; }
 
+    [field: SerializeField]
+    public AudioClip GameOver
+    { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip GameWin
+    { get; private set; }
+
     public bool StartedPlayingNewSound
     { get; set; } = false;
 

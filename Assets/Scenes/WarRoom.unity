@@ -1226,6 +1226,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f317df63ccba314083d87decc600ff6, type: 3}
+--- !u!1 &1353429796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8450459761166809163, guid: c11dfacfc5e29194c9806a1292f13011, type: 3}
+  m_PrefabInstance: {fileID: 5276719101624712769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1368051046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1802,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a900d216c43424942bf41557dcdb65fd, type: 3}
+--- !u!1 &2127559189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4921880977827952741, guid: c11dfacfc5e29194c9806a1292f13011, type: 3}
+  m_PrefabInstance: {fileID: 5276719101624712769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2140110202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8802599372658217084, guid: c2b58e55f8da3e641813c515bdba97c7, type: 3}
@@ -2335,18 +2345,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7952581267793276872, guid: f3d5cb6f6387e7741b048512d0b2d1c0, type: 3}
-      propertyPath: m_ShowToolkit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952581267793276872, guid: f3d5cb6f6387e7741b048512d0b2d1c0, type: 3}
-      propertyPath: m_ShowCustomSorter
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952581267793276872, guid: f3d5cb6f6387e7741b048512d0b2d1c0, type: 3}
-      propertyPath: volumeLayer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2511,6 +2509,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6596747604739362438}
     - target: {fileID: 4535937895527471658, guid: e84b20c1a6dfa3b4ea0e5a1965e7d2e1, type: 3}
+      propertyPath: <AllGameStates>k__BackingField.<GameOver>k__BackingField.<LoseUI>k__BackingField
+      value: 
+      objectReference: {fileID: 1353429796}
+    - target: {fileID: 4535937895527471658, guid: e84b20c1a6dfa3b4ea0e5a1965e7d2e1, type: 3}
+      propertyPath: <AllGameStates>k__BackingField.<GameWin>k__BackingField.<VictorUI>k__BackingField
+      value: 
+      objectReference: {fileID: 2127559189}
+    - target: {fileID: 4535937895527471658, guid: e84b20c1a6dfa3b4ea0e5a1965e7d2e1, type: 3}
+      propertyPath: <AllGameStates>k__BackingField.<GameOver>k__BackingField.<SoundPlayer>k__BackingField
+      value: 
+      objectReference: {fileID: 1104425195}
+    - target: {fileID: 4535937895527471658, guid: e84b20c1a6dfa3b4ea0e5a1965e7d2e1, type: 3}
+      propertyPath: <AllGameStates>k__BackingField.<GameWin>k__BackingField.<CanvasGroupUI>k__BackingField
+      value: 
+      objectReference: {fileID: 5276719101624712771}
+    - target: {fileID: 4535937895527471658, guid: e84b20c1a6dfa3b4ea0e5a1965e7d2e1, type: 3}
+      propertyPath: <AllGameStates>k__BackingField.<GameOver>k__BackingField.<CanvasGroupUI>k__BackingField
+      value: 
+      objectReference: {fileID: 5276719101624712771}
+    - target: {fileID: 4535937895527471658, guid: e84b20c1a6dfa3b4ea0e5a1965e7d2e1, type: 3}
       propertyPath: <AllGameStates>k__BackingField.<DisplayOutcome>k__BackingField.<SoundPlayer>k__BackingField
       value: 
       objectReference: {fileID: 1104425195}
@@ -2588,6 +2606,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c11dfacfc5e29194c9806a1292f13011, type: 3}
+--- !u!225 &5276719101624712771 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1852195595608424768, guid: c11dfacfc5e29194c9806a1292f13011, type: 3}
+  m_PrefabInstance: {fileID: 5276719101624712769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5757681972277129860 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9189784510190725228, guid: d94ad6734e6372d479ccbd4e7d38b9b6, type: 3}
