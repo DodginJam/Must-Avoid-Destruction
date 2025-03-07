@@ -93,6 +93,7 @@ public class GameState_DisplayProblem : GameState_Base
         else if (DisplayState == DisplayStatus.DisplayScreen)
         {
             gameManager.ScreenDisplays.DisplayResolutionOptions(gameManager.CurrentCrisis);
+            gameManager.NegotiatorDisplay.DisplayNegotiatorInformation(gameManager.CurrentCrisis.Negotiator);
 
             DisplayState = DisplayStatus.ChangeState;
         }

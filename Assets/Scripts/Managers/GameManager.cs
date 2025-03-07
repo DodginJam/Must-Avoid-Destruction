@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
     public DisplayOptions ScreenDisplays
     { get; private set; }
 
+    [field: SerializeField]
+    public NegotiatorDisplay NegotiatorDisplay
+    { get; private set; }
+
     [field: SerializeField, Range(1, 5)]
     public int StartingAlertLevel
     { get; private set; } = 2;

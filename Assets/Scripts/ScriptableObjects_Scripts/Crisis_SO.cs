@@ -44,12 +44,18 @@ public class Crises_SO : ScriptableObject
     {
         int solutionScore = (int)option.ResolutionLevel;
 
+        Debug.Log($"Resolution Level on click: {solutionScore}");
+
         int negotiatorBonusScore = negotiator.Position == option.JobRoleAppeal ? 1 : 0;
         int negotiatorNegativeScore = negotiator.Position == option.JobRoleDisgust ? -1 : 0;
 
         solutionScore += negotiatorBonusScore + negotiatorNegativeScore;
 
-        int solutionGoal = (int)SeverityLevel;
+        Debug.Log($"Resolution Level on negotiator bonus: {solutionScore}");
+
+        int solutionGoal = (int)SeverityLevel + 1;
+
+        Debug.Log($"Solution score:{solutionScore}\t Target to beat:{solutionGoal}");
 
         if (solutionScore >= solutionGoal)
         {

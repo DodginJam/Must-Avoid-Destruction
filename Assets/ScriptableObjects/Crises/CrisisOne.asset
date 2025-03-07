@@ -20,7 +20,7 @@ MonoBehaviour:
   <OptionsForResolution>k__BackingField:
   - <Title>k__BackingField: Summon the enemy nations ambassador.
     <Detail>k__BackingField: 
-    <ResolutionLevel>k__BackingField: 0
+    <ResolutionLevel>k__BackingField: 1
     <JobRoleAppeal>k__BackingField: 0
     <JobRoleDisgust>k__BackingField: 1
   - <Title>k__BackingField: Deploy like-numbered troop to our own border.
@@ -30,7 +30,7 @@ MonoBehaviour:
     <JobRoleDisgust>k__BackingField: 2
   - <Title>k__BackingField: Condemn and denounce the enemy leader.
     <Detail>k__BackingField: 
-    <ResolutionLevel>k__BackingField: 2
+    <ResolutionLevel>k__BackingField: 0
     <JobRoleAppeal>k__BackingField: 2
     <JobRoleDisgust>k__BackingField: 0
   - <Title>k__BackingField: Commit to no actions.
