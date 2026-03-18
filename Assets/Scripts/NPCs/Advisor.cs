@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Advisor : MonoBehaviour, IInteractable
@@ -10,7 +7,7 @@ public class Advisor : MonoBehaviour, IInteractable
     {  get; private set; }
 
     public bool IsInteractionEnabled
-    { get; set; }
+    { get; set; } = true;
 
     [field: SerializeField]
     public float InteractionDistance
@@ -24,8 +21,8 @@ public class Advisor : MonoBehaviour, IInteractable
     public Material DefaultMaterial
     { get; set; }
 
-    public List<MeshRenderer> Parts
-    { get; set; } = new List<MeshRenderer>();
+    public Animator Animator
+    { get; set; }
 
     public void Awake()
     {
@@ -34,10 +31,10 @@ public class Advisor : MonoBehaviour, IInteractable
             Debug.LogError("Must assign a advisor_SO to an NPC");
         }
 
-        DefaultMaterial = GetComponent<MeshRenderer>().material;
-
-        Parts.AddRange(GetComponentsInChildren<MeshRenderer>().ToList<MeshRenderer>());
-        Parts.Add(GetComponent<MeshRenderer>());
+        if (Animator == null)
+        {
+            Animator = GetComponentInChildren<Animator>();
+        }
     }
 
     // Start is called before the first frame update
@@ -56,29 +53,22 @@ public class Advisor : MonoBehaviour, IInteractable
 
     public void OnInteraction()
     {
+        if (!Animator.GetCurrentAnimatorStateInfo(0).IsName("wave") && !Animator.IsInTransition(0))
+        {
+            Animator.SetTrigger("wave");
+        }
+
         Debug.Log($"Interacted with {AdvisorScriptableObject.Name}, who's role is {AdvisorScriptableObject.TitleRole}");
     }
 
     public void OnMouseEnter()
     {
-        if (IsInteractionEnabled)
-        {
-            foreach (MeshRenderer mesh in Parts)
-            {
-                IInteractable.ChangeInteractableMaterial(mesh, HighLightMaterial);
-            }
-        }
+
     }
 
     public void OnMouseExit()
     {
-        if (IsInteractionEnabled)
-        {
-            foreach (MeshRenderer mesh in Parts)
-            {
-                IInteractable.ChangeInteractableMaterial(mesh, DefaultMaterial);
-            }
-        }
+
     }
 
     public void OnMouseOver()

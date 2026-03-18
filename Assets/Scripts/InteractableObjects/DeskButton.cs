@@ -29,14 +29,27 @@ public class DeskButton : MonoBehaviour, IInteractable
     public AudioSource AudioSource 
     { get; set; }
 
+    public MeshRenderer[] PartsMeshRenderer
+    { get; set; }
+
+    public Material[] PartsDefaultMaterials
+    { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
         IsInteractionEnabled = true;
 
-        Parts = GetComponentsInChildren<MeshRenderer>();
+        PartsMeshRenderer = GetComponentsInChildren<MeshRenderer>();
+        PartsDefaultMaterials = new Material[PartsMeshRenderer.Length];
 
-        DefaultMaterial = Parts[0].material;
+        for (int i = 0; i < PartsMeshRenderer.Length; i++)
+        {
+            PartsDefaultMaterials[i] = PartsMeshRenderer[i].material;
+        }
+
+        // Being assigned but not used at moment due to need to rework interactiable interface.
+        DefaultMaterial = PartsMeshRenderer[0].material;
     }
 
     // Update is called once per frame
@@ -62,9 +75,9 @@ public class DeskButton : MonoBehaviour, IInteractable
     {
         if (IsInteractionEnabled && Vector3.Distance(Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0)), transform.position) <= InteractionDistance)
         {
-            foreach (MeshRenderer mesh in Parts)
+            for (int i = 0; i < PartsMeshRenderer.Length; i++)
             {
-                IInteractable.ChangeInteractableMaterial(mesh, HighLightMaterial);
+                IInteractable.ChangeInteractableMaterial(PartsMeshRenderer[i], HighLightMaterial);
             }
         }
     }
@@ -73,9 +86,9 @@ public class DeskButton : MonoBehaviour, IInteractable
     {
         if (IsInteractionEnabled)
         {
-            foreach (MeshRenderer mesh in Parts)
+            for (int i = 0; i < PartsMeshRenderer.Length; i++)
             {
-                IInteractable.ChangeInteractableMaterial(mesh, DefaultMaterial);
+                IInteractable.ChangeInteractableMaterial(PartsMeshRenderer[i], PartsDefaultMaterials[i]);
             }
         }
     }
@@ -86,24 +99,24 @@ public class DeskButton : MonoBehaviour, IInteractable
         {
             if (IsInteractionEnabled)
             {
-                foreach (MeshRenderer mesh in Parts)
+                foreach (MeshRenderer mesh in PartsMeshRenderer)
                 {
                     IInteractable.ChangeInteractableMaterial(mesh, HighLightMaterial);
                 }
             }
             else
             {
-                foreach (MeshRenderer mesh in Parts)
+                for (int i = 0; i < PartsMeshRenderer.Length; i++)
                 {
-                    IInteractable.ChangeInteractableMaterial(mesh, DefaultMaterial);
+                    IInteractable.ChangeInteractableMaterial(PartsMeshRenderer[i], PartsDefaultMaterials[i]);
                 }
             }
         }
         else
         {
-            foreach (MeshRenderer mesh in Parts)
+            for (int i = 0; i < PartsMeshRenderer.Length; i++)
             {
-                IInteractable.ChangeInteractableMaterial(mesh, DefaultMaterial);
+                IInteractable.ChangeInteractableMaterial(PartsMeshRenderer[i], PartsDefaultMaterials[i]);
             }
         }
     }
